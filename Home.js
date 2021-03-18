@@ -5,7 +5,7 @@ function timeDate(){
     var minutes = today.getMinutes();
     var seconds = today.getSeconds();
 
-	if (hours >= 8 && hours <= 21) {
+	if (hours >= 8 && hours <= 20) {
 		document.getElementById('zonEnMaan').classList.remove('maan');
 		document.getElementById('zonEnMaan').classList.add('zon');
 	} else {
@@ -13,7 +13,7 @@ function timeDate(){
 		document.getElementById('zonEnMaan').classList.add('maan');
 	}
 
-    if (hours >=8 && hours <= 21) {
+    if (hours >= 8 && hours <= 20) {
 		document.getElementById('page').classList.remove('nacht');
 		document.getElementById('page').classList.add('dag');
 	} else {
