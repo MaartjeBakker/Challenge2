@@ -1,0 +1,144 @@
+@font-face {
+	font-family: Poppins;
+	src: url(fonts/Poppins-Regular.ttf);
+	font-family: Poppins-bold;
+	src: url(fonts/Poppins-Bold.ttf);
+}
+body {
+	color: white;
+	text-align: center;
+	font-family: Poppins, Arial;
+	background-repeat: repeat;
+}
+.container {
+	display: grid;
+	position: relative;
+	min-height: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 200px 100px 100px 180px;
+	grid-template-areas: 
+	"leeg"
+	"vak1"
+	"vak2"
+	"vak3"
+	;
+}
+#tijd {
+	grid-area: vak2;
+	grid-column: 1/4;
+	font-size: 50pt;
+	font-family: Poppins-bold, Arial;
+	font-weight: bold;
+}
+#datum {
+	font-size: 25pt;
+	margin-top: -20px;
+	grid-area: vak3;
+	grid-column: 1/4;
+}
+#zonEnMaan {
+	grid-area: vak1;
+	margin-top: -110px;
+	justify-self: center;
+	grid-column: 2/3;
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	animation: 1000ms pulsate infinite alternate ease-in-out;
+}
+@keyframes pulsate {
+  0% { 
+    top: 100px;
+    transform: rotate(50deg); 
+  }
+  100% { 
+    top: 75px;
+    transform: rotate(-50deg);
+  }
+}
+.nacht {
+	background-image: url("afbeeldingen/stars-mobile.png");
+	background-color: black;
+}
+.dag {
+	background-image: url("afbeeldingen/sky-mobile.png");
+	background-color: #589CFF;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
+	animation: moveBackground 80s linear infinite;
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+}
+@keyframes moveBackground {
+	from { background-position: 0 0; }
+	to {background-position: 100% 0; }
+}
+.zon {
+	background-image: url("afbeeldingen/sun.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.maan {
+	background-image: url("afbeeldingen/moon.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+/*tablet*/
+@media only screen and (min-width: 750px){
+	.dag {
+		background-image: url("afbeeldingen/sky-tablet.png");
+		animation: moveBackground 50s linear infinite;
+	}
+	.nacht {
+		background-image: url("afbeeldingen/stars-tablet.png");
+	}
+
+}
+
+/*klein*/
+@media only screen and (min-width: 1050px){
+	.dag {
+		background-image: url("afbeeldingen/sky-laptop.png");
+		animation: moveBackground 5s linear infinite;
+	}
+	.nacht {
+		background-image: url("afbeeldingen/stars-laptop.png");
+	}
+	#zonEnMaan {
+		width: 110px;
+		height: 110px;
+		grid-area: vak3;
+		grid-column: 2/3;
+	}
+	#tijd {
+		grid-area: vak1;
+		font-size: 55pt;
+		grid-column: 2/3;
+	}
+	#datum {
+		grid-area: vak2;
+		font-size: 30pt;
+		grid-column: 2/3;
+	}
+}
+
+/*groot*/
+@media only screen and (min-width: 1460px){
+	.dag {
+		background-image: url("afbeeldingen/sky-groot.png");
+	}
+	.nacht {
+		background-image: url("afbeeldingen/stars-groot.png");
+	}
+	#tijd {
+		font-size: 65pt;
+	}
+	#datum {
+		font-size: 45pt;
+		margin-top: 0;
+	}
+	#zonEnMaan {
+		margin-top: -70px;
+	}
+}
